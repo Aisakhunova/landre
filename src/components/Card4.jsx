@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Vector } from "../img/Vector";
 import { Cloud } from "../assets/Cloud";
 import { Lightning } from "../assets/Lightning";
-import { Wheel } from "../assets/WHeel";
+import { Wheel } from "../assets/Wheel";
 import { useState, useEffect } from "react";
 const Card4 = () => {
     const [showFooter, setShowFooter] = useState(false);
