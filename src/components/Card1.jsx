@@ -14,36 +14,40 @@ const Card1 = () => {
         <motion.div
           variants={{
             hover: {
-              scale: 1.2,
-              rotate: -60,
-              x: -35,
-              y: -60,
+              scale: 1,
+              rotate: 0,
+              x: 0,
+              y: 0,
             },
           }}
-          initial={{x: 70 }}  
+          initial={{rotate: 60, x: 95, y: 60, scale: 0.8 }}  
           transition={{
             duration: 0.5,
             ease: "easeInOut",
           }}
           style={styles.vectorWrapper}
         >
-          <Vector style={styles.vector} />
+          {/* <Vector style={styles.vector} /> */}
+          <img src="src/img/planet.png" alt="" />
         </motion.div>
         
         <motion.div
           variants={{
             hover: {
-              x: 300,
-              y: "-110%",
+              
+              x: 0,
+              y: "0",
               rotate: 0, 
             },
           }}
-          initial={{ rotate: 40, x: 0, y: 0 }}  
-          whileHover={{
-            rotate: 0, 
-            x: 300,    
-            y: "-110%", 
-          }}
+          initial={{x: -400,
+            y: "110%",
+            rotate: 0,  }}  
+          // whileHover={{
+          //   rotate: 0, 
+          //   x: 300,    
+          //   y: "-110%", 
+          // }}
           transition={{
             duration: 0.5,
             ease: "easeInOut",
@@ -75,20 +79,24 @@ const Card1 = () => {
 const styles = {
   card: {
     position: "relative",
-    width: "48%",
-    height: "608px",
+    width: "90%", // Ширина карточки относительно контейнера
+    maxWidth: "608px", // Максимальная ширина
+    aspectRatio: "1", // Поддержка пропорций 1:1
     backgroundColor: "#111111",
     display: "flex",
     overflow: "hidden",
-    color: 'white',
-    cursor: 'pointer', 
+    color: "white",
+    cursor: "pointer",
     borderRadius: "20px",
+    margin: "0 auto", // Центровка карточки
   },
   vectorWrapper: {
     position: "absolute",
-    width: "547.29px",
-    height: "547.38px",
-    top: "58%",
+    width: "110%", // Относительный размер
+    height: "110%", // Относительный размер
+    top: "35%", // Сдвиг относительно размера карточки
+    left: "-10%",
+  
   },
   vector: {
     width: "100%",
@@ -96,36 +104,35 @@ const styles = {
   },
   cloud: {
     position: "absolute",
-    top: "366px",
-    left: "-290.32px",
-    gap: "6px",
-    opacity: "1",
-    transform: "rotate(180deg)", 
+    top: "33%",
+    left: "5%",
+    width: "80%", // Задаём ширину, чтобы адаптировалось
+    // transform: "rotate(180deg)",
   },
   title: {
-    fontSize: "60px",
-    
-
+    fontSize: "clamp(24px, 5vw, 60px)", // Адаптивный размер шрифта
     fontWeight: "500",
-    lineHeight: "60px",
+    lineHeight: "1.2",
     position: "absolute",
-    top: "55px",
-    left: "35px"
+    top: "10%",
+    left: "5%",
+    maxWidth: "90%",
   },
   btn: {
     position: "absolute",
-    bottom: "20px",
-    right: "20px",
+    bottom: "5%",
+    right: "5%",
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
   },
   btnText: {
-    fontFamily: "'Raleway'",
-    fontSize: "20px",
-    lineHeight: "20px",
+    fontFamily: "'Raleway', sans-serif",
+    fontSize: "clamp(14px, 2vw, 20px)", // Адаптивный текст кнопки
+    lineHeight: "1.2",
     marginLeft: "10px",
-  }
+  },
 };
+
 
 export default Card1;

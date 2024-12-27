@@ -105,7 +105,8 @@ export const Steps = () => {
         >
           <div className="ice-long-text">Set Up Your Secure VPN in Minutes</div>
           <div className="long-vector">
-            <Layers />
+            
+            <img src="src/img/layers.png" alt="" />
           </div>
         </motion.div>
       </div>
@@ -123,7 +124,7 @@ export const Steps = () => {
         }}
         className="cube"
       >
-        <img src="src/img/cube.png" alt="" />
+        <img src="src/img/cube2.png" alt="" />
       </motion.div>
 
       <motion.button

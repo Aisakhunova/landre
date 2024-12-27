@@ -3,7 +3,8 @@ import React, { useState } from "react";
 const faqData = [
   {
     question: "Who are you and who stands behind this VPN service?",
-    answer: "",
+    answer: 
+      "At Wraith VPN we're a passionate team of tech enthusiasts and privacy advocates dedicated to helping you achieve online freedom and security regardless of any restrictions possible. Our team consists of professionals from diverse backgrounds, including cybersecurity, software development, and customer service, all committed to providing you with the best possible VPN experience. We are highly experienced web users facing restrictions every day. Using other VPN and proxy services which give our sensitive data away, we decided to develop our own product which will push your user experience to the moon",
   },
   {
     question: "What is V2Ray and why should I use it?",
@@ -11,12 +12,18 @@ const faqData = [
       "V2Ray is an open-source network proxy tool designed to enhance internet privacy, security, and bypass censorship. It encrypts and obfuscates internet traffic to make it harder for censorship systems to detect or block, and offers advanced routing, load balancing, and flexible configuration options. It is commonly used in restrictive regions to evade surveillance and access restricted content. By turning V2Ray VPN on your device you will bypass the restrictions and easily access the resources you need to (Instagram, YouTube, etc.).",
   },
   {
+    question: "Is my data safe with VLESS VPN?",
+    answer: 
+      "Yes! VLESS encrypts your internet traffic, ensuring that your browsing, online activity, and personal data remain private. Additionally, it helps protect against man-in-the-middle attacks.",
+  },
+  {
     question: "What is the difference between VLESS and other VPN protocols?",
-    answer: "",
+    answer: 
+      "VLESS is more efficient than older protocols like other V2Ray protocols, offering improved performance and better resistance to censorship. It's designed for a more lightweight and secure connection."
   },
   {
     question: "What devices can I use VLESS VPN on?",
-    answer: "",
+    answer: "VLESS VPN can be used on multiple devices, including:\n\n\nWindows (via V2Ray or XRay clients)\nMacOS (via V2Ray, V2Box or XRay clients)\nAndroid (via V2RayNG or similar apps)\niOS (via Shadowrocket, Streisand, V2Box or similar apps)",
   },
   {
     question: "How do I buy a subscription?",

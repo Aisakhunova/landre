@@ -71,14 +71,16 @@ const Card3 = () => {
 const styles = {
   card: {
     position: "relative",
-    width: "48%",
-    height: "608px",
+    width: "90%", // Адаптивная ширина
+    maxWidth: "608px", // Максимальная ширина
+    aspectRatio: "1", // Поддержка соотношения сторон 1:1
     backgroundColor: "#111111",
     display: "flex",
     overflow: "hidden",
-    color: 'white',
-    cursor: 'pointer', 
+    color: "white",
+    cursor: "pointer",
     borderRadius: "20px",
+    margin: "0 auto", // Центрирование карточки
     flexDirection: "column",
   },
   vectorWrapper: {

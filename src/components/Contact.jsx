@@ -10,7 +10,7 @@ const Contact = () => {
       </div>
       <div className='footer-right'>
         <div className='foot-left'>
-          <a className='footer-text' href="#whyUs">Why Choose Us?</a>
+          <a className='footer-text' href="#whyUs">Why wraith VPN?</a>
           <a className='footer-text' href="#steps">Steps</a>
           <a className='footer-text' href="#faq">FAQ</a>
           <div className='footer-text'>Join</div>

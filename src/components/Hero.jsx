@@ -35,10 +35,7 @@ const Hero = () => {
           
 
         </div>
-        {/* <div className='text-right'>
-          <div>Enjoy the Internet Without Limits</div>
-          <div>Our VPN ensures your privacy is protected while giving you access to the content you love — securely and anonymously</div>
-        </div> */}
+      
       </div>
     </motion.section>
   );
