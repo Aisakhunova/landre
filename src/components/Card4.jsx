@@ -1,11 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Vector } from "../img/Vector";
-import { Cloud } from "../assets/Cloud";
-import { Lightning } from "../assets/Lightning";
+import { useTranslation } from "react-i18next";
 import { Wheel } from "../assets/Wheel";
 import { useState, useEffect } from "react";
 const Card4 = () => {
+  const { t } = useTranslation();
     const [showFooter, setShowFooter] = useState(false);
 
   useEffect(() => {
@@ -22,13 +21,11 @@ const Card4 = () => {
         style={styles.card} className="card-4"
         whileHover="hover"  
       >
-        <div style={styles.title}>Unlimited <span className="choose-green">Bandwidth</span> </div>
+        <div style={styles.title}>{t("whyUs.unlimited1")} <span className="choose-green">{t("whyUs.unlimited2")}</span> </div>
         <motion.div
           variants={{
             hover: {
               rotate: 0,
-            //   x: 0,
-            //   y: 0
             },
           }}
           initial={{ rotate: -140,}}  
@@ -57,7 +54,7 @@ const Card4 = () => {
           }}
         
         >
-         <div className="card4-text">No data caps, no throttling. <br /> <br /> Enjoy an unrestrictedinternet experience</div>
+         <div className="card4-text">{t("whyUs.noData")} <br /> <br />{t("whyUs.experience")}</div>
         </motion.div>
 
 
@@ -77,7 +74,7 @@ const Card4 = () => {
             style={styles.card4Footer}
         
         >
-         <div className="card4-footer">max</div>
+         <div className="card4-footer">{t("whyUs.max")}</div>
         </motion.div>
 
         <div style={styles.btn} onClick={() => console.log("HOLA")}>
@@ -93,7 +90,7 @@ const Card4 = () => {
               fill="white"
             />
           </svg>
-          <div style={styles.btnText}>Get access</div>
+          <div style={styles.btnText}>{t("header.getAccess")}</div>
         </div>
       </motion.div> 
   );
@@ -102,15 +99,17 @@ const Card4 = () => {
 const styles = {
   card: {
     position: "relative",
-    width: "48%",
-    height: "608px",
+    width: "90%", // Адаптивная ширина
+    maxWidth: "608px", // Максимальная ширина
+    aspectRatio: "1", // Поддержка соотношения сторон 1:1
     backgroundColor: "#111111",
     display: "flex",
     overflow: "hidden",
-    color: 'white',
-    cursor: 'pointer', 
+    color: "white",
+    cursor: "pointer",
     borderRadius: "20px",
     flexDirection: "column",
+    alignItems: "center",
   },
   vectorWrapper: {
     position: "absolute",

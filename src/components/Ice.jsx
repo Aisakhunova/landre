@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { Layers } from "../assets/Layers";
+import { useTranslation } from "react-i18next";
 
 export const Steps = () => {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -30,7 +31,7 @@ export const Steps = () => {
   return (
     <motion.section id="steps" ref={sectionRef}>
       <div className="rectangle9">
-        <div className="ice-title">Get Started in 3 Simple Steps</div>
+        <div className="ice-title">{t("steps.getStarted")}</div>
       </div>
 
       <div className="ice-cards">
@@ -48,7 +49,7 @@ export const Steps = () => {
             }}
             className="ice-card"
           >
-            <button className="ice-btn">Click to Join</button>
+            <button className="ice-btn">{t("steps.click")}</button>
           </motion.div>
 
           <motion.div
@@ -66,7 +67,7 @@ export const Steps = () => {
             className="ice-card2"
           >
             <div className="ice-chat">
-              Chat with Our <span className="green-back">Bot</span>
+            {t("steps.chat1")} <span className="green-back">{t("steps.chat2")}</span>
             </div>
             <div className="ice-chat2">
               <svg
@@ -84,7 +85,7 @@ export const Steps = () => {
                   fill="white"
                 />
               </svg>
-              Go chat
+              {t("steps.chatBtn")}
             </div>
           </motion.div>
         </div>
@@ -103,9 +104,11 @@ export const Steps = () => {
           }}
           className="ice-card-long"
         >
-          <div className="ice-long-text">Set Up Your Secure VPN in Minutes</div>
+          <div className="ice-long-text">{t("steps.setup")}</div>
           <div className="long-vector">
-            <Layers />
+            
+          <source srcset="src/img/layers.webp" type="image/webp"></source>
+            <img src="src/img/layers.png" alt="" />
           </div>
         </motion.div>
       </div>
@@ -123,7 +126,8 @@ export const Steps = () => {
         }}
         className="cube"
       >
-        <img src="src/img/cube.png" alt="" />
+        <source srcset="src/img/cube2.webp" type="image/webp"></source>
+        <img src="src/img/cube2.png" alt="" />
       </motion.div>
 
       <motion.button
@@ -140,7 +144,7 @@ export const Steps = () => {
         }}
         className="ice-btn2"
       >
-        Get access
+        {t("header.getAccess")}
       </motion.button>
     </motion.section>
   );

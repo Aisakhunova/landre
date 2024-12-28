@@ -6,7 +6,9 @@ import Card1 from "./Card1";
 import Card2 from "./Card2";
 import Card3 from "./Card3";
 import Card4 from "./Card4";
+import { useTranslation } from "react-i18next";
 const WhyUs = () => {
+  const { t, i18n } = useTranslation();
   return(
     <motion.section
       id="whyUs"
@@ -15,7 +17,7 @@ const WhyUs = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1, delay: 1 }}
     > 
-      <div className="choose-title"><span className="choose-green">Why</span> Choose Us?</div>
+      <div className="choose-title"><span className="choose-green">{t("whyUs.whyChooseUs1")}</span> {t("whyUs.whyChooseUs2")}</div>
       <div className="cards">
         <Card1/>
         <Card2/>

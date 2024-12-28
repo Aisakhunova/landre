@@ -6,8 +6,8 @@ body {
 }
 
 header {
-  padding: 0 100px; /* Уменьшаем паддинг по бокам */
-  padding-top: 10px;
+/*   
+  padding-top: 10px; */
   width: 100%;
   z-index: 10;
   display: flex;
@@ -20,7 +20,6 @@ header {
 
 
 header nav ul {
-  
   display: flex;
   justify-content: center;
   list-style-type: none;
@@ -49,10 +48,74 @@ nav ul li a:active {
   color: #17FFB2; /* Цвет при нажатии */
 }
 
+.menu-icon {
+  display: none; /* Скрываем на больших экранах */
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-icon span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  nav ul {
+    flex-direction: column; /* Меняем направление на столбец */
+    align-items: center;
+    gap: 10px; /* Добавляем расстояние между элементами */
+    padding: 10px 0;
+    display: none;
+  }
+
+  nav ul li {
+    margin: 0; /* Убираем отступы между пунктами */
+  }
+
+  a {
+    font-size: 16px; /* Уменьшаем размер текста ссылок */
+  }
+
+  .header-btn {
+    margin-top: 10px; /* Добавляем отступ для кнопки */
+    font-size: 18px; /* Уменьшаем размер текста кнопки */
+    padding: 8px 16px;
+  }
+
+
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+  }
+
+  .menu-open nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1C1C1C; /* Цвет фона меню */
+    position: absolute;
+    top: 50px; /* Расположение меню под хедером */
+    width: 100%;
+    z-index: 10;
+  }
+  .logo {
+    width: 120px; /* Размер логотипа на мобильных устройствах */
+    height: auto;
+  }
+}
+
+
 section {
   /* height: 100vh; */
   max-width: 1400px;
-  padding: 40px 100px;
+  padding: auto;
   width: 100%;
   margin: 0 auto;
   
@@ -98,7 +161,7 @@ html {
 
 
 .title{
-  width: 50%;
+  width: 70%;
   font-size: 4vw;
   font-weight: 500;
 }
@@ -106,13 +169,14 @@ html {
 .green-back{
   background-color: #17FFB2;
   border-radius: 10px;
+  white-space: nowrap;
 }
 
 .hero-content {
   position: relative;
   color: white;
   width: 100%;
-  height: 70vh;
+  height: 63vh;
   border-radius: 2.5rem;
   overflow: hidden; 
   display: flex;
@@ -124,8 +188,9 @@ html {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* Чтобы видео заполняло блок */
+  /* object-fit: cover;  */
+  background-position-y: top;
+
   z-index: -10; /* Чтобы видео было позади текста */
 }
 
@@ -197,6 +262,43 @@ html {
   body{
     padding: 0;
   }
+  .background-video::after {
+    content: "";
+    display: none; /* Скрываем логотип */
+  }
+
+  .background-video {
+    height: 50vh;
+  }
+  .title {
+    font-size: 6vw; /* Динамический размер шрифта */
+    width: 100%; /* Растягиваем текст */
+  }
+
+  .description {
+    font-size: 18px; /* Уменьшенный размер текста */
+    text-align: center; /* Центрируем текст */
+  }
+
+  .text-left {
+    padding: 20px;
+  }
+
+  .startButton {
+    font-size: 20px;
+    padding: 8px 16px;
+  }
+  .hero-content {
+    flex-direction: column;
+    justify-content: center;
+    height: auto; /* Подстраиваем высоту */
+  }
+
+  .bottom-text {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 
@@ -217,18 +319,24 @@ html {
   color: #17FFB2;
 }
 
+
 .card-pale-text{
   opacity: 20%;
   width: 300px;
   text-align: center;
+  margin-top: 20%;
+  margin-bottom: 30px;
 }
 
 .cards{
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+  align-items: start;
   gap: 20px;
-  justify-content: space-between;
 }
+
+
 
 .card-text{
 font-size: 40px;
@@ -242,7 +350,7 @@ margin-left: 35px;
 }
 
 .card4-text{
-  font-family: SF Pro Display;
+  font-family: Raleway;
 font-size: 40px;
 font-weight: 500;
 line-height: 40px;
@@ -266,10 +374,31 @@ line-height: 70px;
 
 }
 
+@media (max-width: 768px) {
+  .card {
+    width: 100%; 
+    max-width: none;
+  }
+
+  .title {
+    font-size: 20px; 
+  }
+
+  .btn {
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+
+
 
 
 /* CURTAIN */
 /* Основной контейнер для центровки */
+#curtain{
+  padding: 3vw 0;
+}
 .container {
   display: flex;
   justify-content: center;
@@ -354,7 +483,7 @@ text-decoration-skip-ink: none;
 
 
 #ice {
-  background: url("src/img/steps.png");
+  background: url("src/img/steps2.png");
   background-size: cover; /* Фон растягивается, чтобы покрыть весь элемент */
   background-position: center; /* Центрирование фона */
   background-repeat: no-repeat; /* Фон не повторяется */
@@ -748,7 +877,7 @@ transform: rotate(-24.2deg);
 /* PLEASE */
 #steps{
 
-background: url("src/img/steps.png");
+background: url("src/img/steps2.png");
 position: relative;
 /* width: 1240px;
 height: 560px; */
@@ -826,7 +955,7 @@ opacity: 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 20px 0;
   font-family: Raleway;
   font-size: 24px;
   font-weight: 700;
@@ -839,14 +968,18 @@ opacity: 0px;
 }
 
 .faq-answer {
-  padding: 0 20px;
   font-size: 16px;
-  line-height: 1.5;
-  color: #fff;
   font-family: Raleway;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
+
+font-weight: 600;
+line-height: 19.2px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+color: #B2B2B2;
+
+
+  font-family: Raleway;
   width: 60%;
   max-height: 0;
   overflow: hidden;
@@ -855,7 +988,6 @@ opacity: 0px;
 
 .faq-item.active .faq-answer {
   max-height: 1000px; /* Large enough value to show the content */
-  padding: 15px 20px;
 }
 
 .faq-icon {
@@ -878,7 +1010,8 @@ opacity: 0px;
   background-size: cover; /* Фон растягивается, чтобы покрыть весь элемент */
   background-position: center; /* Центрирование фона */
   background-repeat: no-repeat; /* Фон не повторяется */
-  height: 450px;
+  /* height: 450px; */
+  padding: 20px;
   color: white;
   display: flex;
   flex-direction: column;
@@ -1042,6 +1175,10 @@ color: #D5D5D5;
   align-items: center;
   justify-content: center;
   display: flex;
+}
+
+#whyUs{
+  align-items: start;
 }
 
 

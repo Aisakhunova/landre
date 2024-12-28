@@ -1,10 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Vector } from "../img/Vector";
-import { Cloud } from "../assets/Cloud";
-import { Shield } from "../assets/Shield";
+import { useTranslation } from "react-i18next";
 
 export const Card2 = () => {
+    const { t } = useTranslation();
     return (
         <motion.div
             style={styles.card}
@@ -13,43 +12,52 @@ export const Card2 = () => {
             <motion.div
                 variants={{
                     hover: {
-                        scale: 1.2,
-                        y: 70
+                        y:0
                     },
                 }}
-                initial={{ x: 0, y: -50 }}  
+                initial={{ y: -300 }}  
                 transition={{
                     duration: 0.5,
                     ease: "easeInOut",
                 }}
             >
                 <div className="card-pale-text">
-                    Using cutting-edge protocols such 
-                    <div>as VLESS allows us</div>
+                {t("whyUs.using1")}
+                    <div>{t("whyUs.using2")}</div>
                 </div>
             </motion.div>
 
             <motion.div
                 variants={{
                     hover: {
-                        scale: 1.2,
-                        y: 120,
+                       
+                        y: -20,
                     },
                 }}
-                initial={{ x: 0, y: 180 }}
+                // initial={{ x: 0, y: 180 }}
                 transition={{
                     duration: 0.5,
                     ease: "easeInOut",
                 }}
             >
                 <div style={styles.title}>
-                    Top-Tier 
+                {t("whyUs.top1")}
+                   
                     <motion.div 
                         className="green-back" 
-                        whileHover={{ padding: "10px 20px" }} // Изменение padding при наведении
-                        style={styles.greenBack}
+                       
+                        variants={{
+                            hover: {
+                                padding: "5px 10px",
+                            },
+                        }}// Изменение padding при наведении
+                    
+                        transition={{
+                            duration: 0.5,
+                            ease: "easeInOut",
+                        }}
                     >
-                    Security
+                    {t("whyUs.top2")}
                     </motion.div>
                 </div>
             </motion.div>
@@ -59,10 +67,10 @@ export const Card2 = () => {
                 variants={{
                     hover: {
                     scale: 1.15,
-                    y: 180,
+                    y: 70,
                     },
                 }}
-                initial={{y: 200 }}  
+                initial={{ y: 100 }}  
                 
                 transition={{
                     duration: 0.5,
@@ -70,7 +78,8 @@ export const Card2 = () => {
                 }}
                 style={styles.vectorWrapper}
             >
-                <Shield/>
+                <source srcset="src/img/shield.webp" type="image/webp"></source>
+                <img src="src/img/shield.png" alt="" className={styles.vector} />
             </motion.div>
     
         
@@ -89,67 +98,61 @@ export const Card2 = () => {
                     fill="white"
                     />
                 </svg>
-                <div style={styles.btnText}>Get access</div>
+                <div style={styles.btnText}>{t("header.getAccess")}</div>
             </div>
       </motion.div> 
     )
 }
+
 const styles = {
     card: {
       position: "relative",
-      width: "48%",
-      height: "608px",
+      width: "90%", // Адаптивная ширина
+      maxWidth: "608px", // Максимальная ширина
+      aspectRatio: "1", // Поддержка соотношения сторон 1:1
       backgroundColor: "#111111",
       display: "flex",
       overflow: "hidden",
-      color: 'white',
-      cursor: 'pointer', 
+      color: "white",
+      cursor: "pointer",
       borderRadius: "20px",
-      display: "flex",
+      flexDirection: "column",
       alignItems: "center",
-      flexDirection: "column"
     },
     vectorWrapper: {
-    //   position: "absolute",
-    //   width: "307.66px",
-    //   height: "400.84px",
-      top: "58%",
-      
+        position: "absolute",
+      width: "60%", // Относительный размер
+      height: "90%",
+      top: "35%", // Адаптируем положение
     },
     vector: {
       width: "100%",
       height: "100%",
+      objectFit: "fill"
     },
-    cloud: {
-      position: "absolute",
-      top: "366px",
-      left: "-290.32px",
-      gap: "6px",
-      opacity: "1",
-      transform: "rotate(180deg)", 
-    },
-    title: {
-      fontSize: "60px",
-  
-      fontWeight: "500",
-      lineHeight: "60px",
-    //   position: "absolute",
 
+    title: {
+      fontSize: "clamp(24px, 5vw, 60px)", // Адаптивный размер текста
+      fontWeight: "500",
+      lineHeight: "1.2",
+      textAlign: "center",
+      marginBottom: "10px",
     },
+
     btn: {
-        position: "absolute",
-      bottom: "20px",
-      right: "20px",
+      position: "absolute",
+      bottom: "5%",
+      right: "5%",
       display: "flex",
       justifyContent: "space-between",
-      alignItems: "center"
+      alignItems: "center",
     },
     btnText: {
-      fontFamily: "'Raleway'",
-      fontSize: "20px",
-      lineHeight: "20px",
+      fontFamily: "'Raleway', sans-serif",
+      fontSize: "clamp(14px, 2vw, 20px)", // Адаптивный размер текста
+      lineHeight: "1.2",
       marginLeft: "10px",
-    }
+    },
   };
 
   export default Card2;

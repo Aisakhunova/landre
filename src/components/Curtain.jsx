@@ -1,11 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export const Curtain = () => {
+  const { t } = useTranslation();
   return (
     <motion.div
       className="container"
       whileHover="hover" // Включение анимации при наведении
+      id="curtain"
     >
       <motion.div
         className="outer-container"
@@ -53,7 +56,7 @@ export const Curtain = () => {
           transition={{ duration: 0.3, delay: 0.1 }}
         >
           <div className="choose-green">
-            Ready to Experience Online Freedom?
+          {t("curtain.ready")}
           </div>
         </motion.h1>
 
@@ -70,7 +73,7 @@ export const Curtain = () => {
           }}
           transition={{ duration: 0.3 }}
         >
-          <p className="curtain-text">I am ready! </p>
+          <p className="curtain-text">{t("curtain.iamready")} </p>
           <motion.div
             initial={{ opacity: 0, x: -100 }}
             variants={{

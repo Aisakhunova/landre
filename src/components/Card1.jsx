@@ -2,55 +2,63 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Vector } from "../img/Vector";
 import { Cloud } from "../assets/Cloud";
+import { useTranslation } from "react-i18next";
 
 const Card1 = () => {
+  const { t } = useTranslation();
   
   return (
     <motion.div
         style={styles.card}
         whileHover="hover"  
       >
-        <div style={styles.title}>Access Global Content</div>
+        <div style={styles.title}>{t("whyUs.global")}</div>
         <motion.div
           variants={{
             hover: {
-              scale: 1.2,
-              rotate: -60,
-              x: -35,
-              y: -60,
+              scale: 1,
+              rotate: 0,
+              x: 0,
+              y: 0,
             },
           }}
-          initial={{x: 70 }}  
+          initial={{rotate: 60, x: 95, y: 60, scale: 0.8 }}  
           transition={{
             duration: 0.5,
             ease: "easeInOut",
           }}
           style={styles.vectorWrapper}
         >
-          <Vector style={styles.vector} />
+          {/* <Vector style={styles.vector} /> */}
+          <source srcset="src/img/planet.webp" type="image/webp"></source>
+          <img src="src/img/planet.png" alt="" />
         </motion.div>
         
         <motion.div
           variants={{
             hover: {
-              x: 300,
-              y: "-110%",
+              
+              x: 0,
+              y: "0",
               rotate: 0, 
             },
           }}
-          initial={{ rotate: 40, x: 0, y: 0 }}  
-          whileHover={{
-            rotate: 0, 
-            x: 300,    
-            y: "-110%", 
-          }}
+          initial={{x: -400,
+            y: "150%",
+            rotate: 45,  }}  
+          // whileHover={{
+          //   rotate: 0, 
+          //   x: 300,    
+          //   y: "-110%", 
+          // }}
           transition={{
             duration: 0.5,
             ease: "easeInOut",
           }}
           style={styles.cloud}
         >
-          <Cloud />
+          <source srcset="src/img/bubble.webp" type="image/webp"></source>
+          <img src="src/img/bubble.png" alt="" />
         </motion.div>
 
         <div style={styles.btn} onClick={() => console.log("HOLA")}>
@@ -66,7 +74,7 @@ const Card1 = () => {
               fill="white"
             />
           </svg>
-          <div style={styles.btnText}>Get access</div>
+          <div style={styles.btnText}>{t("header.getAccess")}</div>
         </div>
       </motion.div> 
   );
@@ -75,20 +83,23 @@ const Card1 = () => {
 const styles = {
   card: {
     position: "relative",
-    width: "48%",
-    height: "608px",
+    width: "100%", // Ширина карточки относительно контейнера
+    maxWidth: "608px", // Максимальная ширина
+    aspectRatio: "1", // Поддержка пропорций 1:1
     backgroundColor: "#111111",
     display: "flex",
     overflow: "hidden",
-    color: 'white',
-    cursor: 'pointer', 
+    color: "white",
+    cursor: "pointer",
     borderRadius: "20px",
   },
   vectorWrapper: {
     position: "absolute",
-    width: "547.29px",
-    height: "547.38px",
-    top: "58%",
+    width: "110%", // Относительный размер
+    height: "110%", // Относительный размер
+    top: "35%", // Сдвиг относительно размера карточки
+    left: "-10%",
+  
   },
   vector: {
     width: "100%",
@@ -96,36 +107,35 @@ const styles = {
   },
   cloud: {
     position: "absolute",
-    top: "366px",
-    left: "-290.32px",
-    gap: "6px",
-    opacity: "1",
-    transform: "rotate(180deg)", 
+    top: "33%",
+    left: "5%",
+    width: "80%", // Задаём ширину, чтобы адаптировалось
+    // transform: "rotate(180deg)",
   },
   title: {
-    fontSize: "60px",
-    
-
+    fontSize: "clamp(24px, 5vw, 60px)", // Адаптивный размер шрифта
     fontWeight: "500",
-    lineHeight: "60px",
+    lineHeight: "1.2",
     position: "absolute",
-    top: "55px",
-    left: "35px"
+    top: "10%",
+    left: "5%",
+    maxWidth: "90%",
   },
   btn: {
     position: "absolute",
-    bottom: "20px",
-    right: "20px",
+    bottom: "5%",
+    right: "5%",
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
   },
   btnText: {
-    fontFamily: "'Raleway'",
-    fontSize: "20px",
-    lineHeight: "20px",
+    fontFamily: "'Raleway', sans-serif",
+    fontSize: "clamp(14px, 2vw, 20px)", // Адаптивный текст кнопки
+    lineHeight: "1.2",
     marginLeft: "10px",
-  }
+  },
 };
+
 
 export default Card1;
