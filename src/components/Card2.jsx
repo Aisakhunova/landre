@@ -1,10 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Vector } from "../img/Vector";
-import { Cloud } from "../assets/Cloud";
-import { Shield } from "../assets/Shield";
+import { useTranslation } from "react-i18next";
 
 export const Card2 = () => {
+    const { t } = useTranslation();
     return (
         <motion.div
             style={styles.card}
@@ -23,8 +22,8 @@ export const Card2 = () => {
                 }}
             >
                 <div className="card-pale-text">
-                    Using cutting-edge protocols such 
-                    <div>as VLESS allows us</div>
+                {t("whyUs.using1")}
+                    <div>{t("whyUs.using2")}</div>
                 </div>
             </motion.div>
 
@@ -42,7 +41,7 @@ export const Card2 = () => {
                 }}
             >
                 <div style={styles.title}>
-                    Top-Tier 
+                {t("whyUs.top1")}
                    
                     <motion.div 
                         className="green-back" 
@@ -58,7 +57,7 @@ export const Card2 = () => {
                             ease: "easeInOut",
                         }}
                     >
-                    Security
+                    {t("whyUs.top2")}
                     </motion.div>
                 </div>
             </motion.div>
@@ -79,6 +78,7 @@ export const Card2 = () => {
                 }}
                 style={styles.vectorWrapper}
             >
+                <source srcset="src/img/shield.webp" type="image/webp"></source>
                 <img src="src/img/shield.png" alt="" className={styles.vector} />
             </motion.div>
     
@@ -98,7 +98,7 @@ export const Card2 = () => {
                     fill="white"
                     />
                 </svg>
-                <div style={styles.btnText}>Get access</div>
+                <div style={styles.btnText}>{t("header.getAccess")}</div>
             </div>
       </motion.div> 
     )
@@ -116,7 +116,6 @@ const styles = {
       color: "white",
       cursor: "pointer",
       borderRadius: "20px",
-      margin: "0 auto", // Центрирование карточки
       flexDirection: "column",
       alignItems: "center",
     },

@@ -1,16 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Vector } from "../img/Vector";
-import { Cloud } from "../assets/Cloud";
 import { Lightning } from "../assets/Lightning";
+import { useTranslation } from "react-i18next";
+
 const Card3 = () => {
-  
+  const { t } = useTranslation();
   return (
     <motion.div
         style={styles.card}
         whileHover="hover"  
       >
-        <div style={styles.title}>Blazing <div className="choose-green">Fast</div> Speeds</div>
+        <div style={styles.title}>{t("whyUs.blazing1")} <div className="choose-green">{t("whyUs.blazing2")}</div> {t("whyUs.blazing3")}</div>
         <motion.div
           variants={{
             hover: {
@@ -28,7 +28,9 @@ const Card3 = () => {
           }}
           style={styles.vectorWrapper}
         >
-          <Lightning style={styles.vector} />
+          {/* <Lightning style={styles.vector} /> */}
+          <source srcset="src/img/lightning.webp" type="image/webp"></source>
+          <img src="src/img/lightning.png" alt=""style={styles.vector} />
         </motion.div>
         
         <motion.div
@@ -46,7 +48,7 @@ const Card3 = () => {
           }}
         
         >
-         <div className="card-text">Stream, browse, <br />and download with <br /> no interruptions</div>
+         <div className="card-text">{t("whyUs.stream1")} <br />{t("whyUs.stream2")} <br /> {t("whyUs.stream3")}</div>
         </motion.div>
 
         <div style={styles.btn} onClick={() => console.log("HOLA")}>
@@ -62,7 +64,7 @@ const Card3 = () => {
               fill="white"
             />
           </svg>
-          <div style={styles.btnText}>Get access</div>
+          <div style={styles.btnText}>{t("header.getAccess")}</div>
         </div>
       </motion.div> 
   );
@@ -80,7 +82,6 @@ const styles = {
     color: "white",
     cursor: "pointer",
     borderRadius: "20px",
-    margin: "0 auto", // Центрирование карточки
     flexDirection: "column",
   },
   vectorWrapper: {

@@ -2,15 +2,17 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Vector } from "../img/Vector";
 import { Cloud } from "../assets/Cloud";
+import { useTranslation } from "react-i18next";
 
 const Card1 = () => {
+  const { t } = useTranslation();
   
   return (
     <motion.div
         style={styles.card}
         whileHover="hover"  
       >
-        <div style={styles.title}>Access Global Content</div>
+        <div style={styles.title}>{t("whyUs.global")}</div>
         <motion.div
           variants={{
             hover: {
@@ -28,6 +30,7 @@ const Card1 = () => {
           style={styles.vectorWrapper}
         >
           {/* <Vector style={styles.vector} /> */}
+          <source srcset="src/img/planet.webp" type="image/webp"></source>
           <img src="src/img/planet.png" alt="" />
         </motion.div>
         
@@ -41,8 +44,8 @@ const Card1 = () => {
             },
           }}
           initial={{x: -400,
-            y: "110%",
-            rotate: 0,  }}  
+            y: "150%",
+            rotate: 45,  }}  
           // whileHover={{
           //   rotate: 0, 
           //   x: 300,    
@@ -54,7 +57,8 @@ const Card1 = () => {
           }}
           style={styles.cloud}
         >
-          <Cloud />
+          <source srcset="src/img/bubble.webp" type="image/webp"></source>
+          <img src="src/img/bubble.png" alt="" />
         </motion.div>
 
         <div style={styles.btn} onClick={() => console.log("HOLA")}>
@@ -70,7 +74,7 @@ const Card1 = () => {
               fill="white"
             />
           </svg>
-          <div style={styles.btnText}>Get access</div>
+          <div style={styles.btnText}>{t("header.getAccess")}</div>
         </div>
       </motion.div> 
   );
@@ -79,7 +83,7 @@ const Card1 = () => {
 const styles = {
   card: {
     position: "relative",
-    width: "90%", // Ширина карточки относительно контейнера
+    width: "100%", // Ширина карточки относительно контейнера
     maxWidth: "608px", // Максимальная ширина
     aspectRatio: "1", // Поддержка пропорций 1:1
     backgroundColor: "#111111",
@@ -88,7 +92,6 @@ const styles = {
     color: "white",
     cursor: "pointer",
     borderRadius: "20px",
-    margin: "0 auto", // Центровка карточки
   },
   vectorWrapper: {
     position: "absolute",

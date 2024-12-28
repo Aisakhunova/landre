@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import videoSrc from '../videos/video.mp4'
+import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
+  const { t, i18n } = useTranslation();
   return (
     <motion.section
       id="hero"
@@ -13,23 +15,22 @@ const Hero = () => {
       <div className="hero-content">
       <video autoPlay muted loop playsInline className="background-video">
     <source src={videoSrc} type="video/mp4" />
-    Your browser does not support the video tag.
   </video>
         <div className='text-left'>
           <div>
-          <div className='title'>Your <span className='green-back'>Online Freedom </span>Starts Here</div>
+          <div className='title'>{t("header.your")} <span className='green-back'>{t("header.onlineFreedom")} </span> <br />{t("header.startsHere")}</div>
           <div className='description mTop'>
-            <div>100% Anonymous.</div>
-            <div>No Logs, No Tracking.</div>
-            <div>Unrestricted Browsing</div>
+            <div>{t("header.anonymous")}</div>
+            <div>{t("header.noLogs")}</div>
+            <div>{t("header.browsing")}</div>
           </div>
           </div>
           <div className='bottom-text'>
-            <button className='startButton'>Start Now</button>
+            <button className='startButton'>{t("header.start")}</button>
 
             <div className='text-right'>
-              <div>Enjoy the Internet Without Limits</div>
-              <div className='mTop'>Our VPN ensures your privacy is protected while giving you access to the content you love — securely and anonymously</div>
+              <div>{t("header.enjoy")}</div>
+              <div className='mTop'>{t("header.noWorry")}</div>
             </div>
           </div>
           

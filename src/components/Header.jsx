@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Logo } from '../assets/Logo';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+  const { t, i18n } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -22,17 +24,17 @@ const Header = () => {
       <nav>
         <ul className={menuOpen ? 'open' : ''}>
           <li>
-            <a href="#hero" onClick={() => setMenuOpen(false)}>Home</a>
+            <a href="#hero" onClick={() => setMenuOpen(false)}>{t("header.home")}</a>
           </li>
           <li>
-            <a href="#whyUs" onClick={() => setMenuOpen(false)}>Why Choose Us?</a>
+            <a href="#whyUs" onClick={() => setMenuOpen(false)}>{t("header.whyUs")}</a>
           </li>
           <li>
-            <a href="#contact" onClick={() => setMenuOpen(false)}>Private</a>
+            <a href="#contact" onClick={() => setMenuOpen(false)}>{t("header.private")}</a>
           </li>
         </ul>
       </nav>
-      <button className="startButton header-btn">Get access</button>
+      <button className="startButton header-btn">{t("header.getAccess")}</button>
     </motion.header>
   );
 };
