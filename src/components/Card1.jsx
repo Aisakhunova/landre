@@ -4,13 +4,14 @@ import { Vector } from "../img/Vector";
 import { Cloud } from "../assets/Cloud";
 import { useTranslation } from "react-i18next";
 
+
 const Card1 = () => {
   const { t } = useTranslation();
   
   return (
     <motion.div
-        style={styles.card}
         whileHover="hover"  
+        className="card1"
       >
         <div style={styles.title}>{t("whyUs.global")}</div>
         <motion.div
@@ -30,8 +31,8 @@ const Card1 = () => {
           style={styles.vectorWrapper}
         >
           {/* <Vector style={styles.vector} /> */}
-          <source srcset="src/img/planet.webp" type="image/webp"></source>
-          <img src="src/img/planet.png" alt="" />
+          {/* <source srcset="src/img/planet.webp" type="image/webp"></source> */}
+          <img src="src/img/planet.svg" alt="" style={styles.vector}  />
         </motion.div>
         
         <motion.div
@@ -57,8 +58,8 @@ const Card1 = () => {
           }}
           style={styles.cloud}
         >
-          <source srcset="src/img/bubble.webp" type="image/webp"></source>
-          <img src="src/img/bubble.png" alt="" />
+          {/* <source srcset="src/img/bubble.webp" type="image/webp"></source> */}
+          <img src="src/img/bubble.svg" alt="" style={styles.cloudVector}/>
         </motion.div>
 
         <div style={styles.btn} onClick={() => console.log("HOLA")}>
@@ -81,39 +82,33 @@ const Card1 = () => {
 };
 
 const styles = {
-  card: {
-    position: "relative",
-    width: "100%", // Ширина карточки относительно контейнера
-    maxWidth: "608px", // Максимальная ширина
-    aspectRatio: "1", // Поддержка пропорций 1:1
-    backgroundColor: "#111111",
-    display: "flex",
-    overflow: "hidden",
-    color: "white",
-    cursor: "pointer",
-    borderRadius: "20px",
-  },
   vectorWrapper: {
     position: "absolute",
     width: "110%", // Относительный размер
     height: "110%", // Относительный размер
     top: "35%", // Сдвиг относительно размера карточки
-    left: "-10%",
+    left: "-5%",
+    // backgroundColor: "red"
   
   },
   vector: {
-    width: "100%",
-    height: "100%",
+    width: "100%", // SVG будет адаптироваться к размеру контейнера
+    height: "auto", // Сохраняет пропорции
   },
   cloud: {
     position: "absolute",
     top: "33%",
     left: "5%",
-    width: "80%", // Задаём ширину, чтобы адаптировалось
-    // transform: "rotate(180deg)",
+    width: "50%"
+
+  },
+
+  cloudVector: {
+    width: "100%", // SVG будет адаптироваться к размеру контейнера
+    height: "auto", // Сохраняет пропорции
   },
   title: {
-    fontSize: "clamp(24px, 5vw, 60px)", // Адаптивный размер шрифта
+    fontSize: "clamp(34px, 5vw, 60px)", // Адаптивный размер шрифта
     fontWeight: "500",
     lineHeight: "1.2",
     position: "absolute",
@@ -137,5 +132,12 @@ const styles = {
   },
 };
 
+const mediaQueries = {
+  "@media (max-width: 768px)": {
+    card: {
+      maxWidth: "100%", // Карточка будет занимать 100% ширины на маленьких экранах
+    }
+  },
+};
 
 export default Card1;

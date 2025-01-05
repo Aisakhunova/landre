@@ -18,7 +18,7 @@ const Hero = () => {
   </video>
         <div className='text-left'>
           <div>
-          <div className='title'>{t("header.your")} <span className='green-back'>{t("header.onlineFreedom")} </span> <br />{t("header.startsHere")}</div>
+          <div className='title'>{t("header.your")} <span className='green-back'>{t("header.online")} <span className='green-mob'>{t("header.freedom")}</span> </span> <br />{t("header.startsHere")}</div>
           <div className='description mTop'>
             <div>{t("header.anonymous")}</div>
             <div>{t("header.noLogs")}</div>
@@ -29,7 +29,7 @@ const Hero = () => {
             <button className='startButton'>{t("header.start")}</button>
 
             <div className='text-right'>
-              <div>{t("header.enjoy")}</div>
+              <div className='enjoy'>{t("header.enjoy")}</div>
               <div className='mTop'>{t("header.noWorry")}</div>
             </div>
           </div>

@@ -18,24 +18,25 @@ const Card4 = () => {
   
   return (
     <motion.div
-        style={styles.card} className="card-4"
+         className="card-4 card4"
         whileHover="hover"  
       >
-        <div style={styles.title}>{t("whyUs.unlimited1")} <span className="choose-green">{t("whyUs.unlimited2")}</span> </div>
+        <div style={styles.title} className="card-mob">{t("whyUs.unlimited1")} <span className="choose-green">{t("whyUs.unlimited2")}</span> </div>
         <motion.div
           variants={{
             hover: {
-              rotate: 0,
+              rotate: 140,
             },
           }}
-          initial={{ rotate: -140,}}  
+          initial={{ rotate: -30,}}  
           transition={{
             duration: 0.3,
                     ease: "easeInOut",
           }}
           style={styles.vectorWrapper}
         >
-          <Wheel style={styles.vector} />
+          {/* <Wheel style={styles.vector} /> */}
+          <img src="src/img/wheel.svg" alt="" style={styles.vector} />
         </motion.div>
         
         <motion.div
@@ -65,7 +66,7 @@ const Card4 = () => {
                     y: 0,
                 },
             }}
-            initial={{y: 300 }}  
+            initial={{y: 0 }}  
             // whileHover="hover"
             
             transition={{
@@ -100,7 +101,7 @@ const styles = {
   card: {
     position: "relative",
     width: "90%", // Адаптивная ширина
-    maxWidth: "608px", // Максимальная ширина
+    maxWidth: "48%", // Максимальная ширина
     aspectRatio: "1", // Поддержка соотношения сторон 1:1
     backgroundColor: "#111111",
     display: "flex",
@@ -113,13 +114,15 @@ const styles = {
   },
   vectorWrapper: {
     position: "absolute",
-    width: "600px",
-height: "600px",
-top: "360.98px",
-left: "16.07px",
-angle: "15 deg",
-borderRadius: "50%",
+    width: "100%",
+height: "100%",
+top: "50%",
 overflow: "hidden",
+
+
+      display: "flex",
+    //   alignItems: "center",
+      justifyContent: 'center'
 
   },
   vector: {
@@ -128,14 +131,14 @@ overflow: "hidden",
   },
 
   title: {
-    fontSize: "60px", 
+    fontSize: "clamp(34px, 4vw, 60px)", 
 
     fontWeight: "500",
-    lineHeight: "60px",
+    lineHeight: "1.2",
     // top: "55px",
     // left: "35px"
-    marginTop: "70px",
-    marginBottom: "80px",
+    marginTop: "10%",
+    marginBottom: "10%",
     marginLeft: "35px"
   },
   btn: {
@@ -154,11 +157,19 @@ overflow: "hidden",
   },
   card4Footer: {
     position: "absolute", // Позиционирование внутри родителя
-    width: "140px",
+    width: "100%",
     height: "70px",
-    top: "526px",
-    left: "240px",
+    bottom: "3%",
+    fontSize: "clamp(40px, 6vw, 70px)", 
+
   }
 };
 
+const mediaQueries = {
+  "@media (max-width: 768px)": {
+    card: {
+      width: "100%", // Карточка будет занимать 100% ширины на маленьких экранах
+    }
+  },
+};
 export default Card4;

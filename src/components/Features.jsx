@@ -2,6 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Vector } from "../img/Vector";
 import { Cloud } from "../assets/Cloud";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import { Numbers } from "./Numbers";
+
 import Card1 from "./Card1";
 import Card2 from "./Card2";
 import Card3 from "./Card3";
@@ -10,6 +15,7 @@ import { useTranslation } from "react-i18next";
 const WhyUs = () => {
   const { t, i18n } = useTranslation();
   return(
+    
     <motion.section
       id="whyUs"
       className="whyUs"
@@ -18,6 +24,7 @@ const WhyUs = () => {
       transition={{ duration: 1, delay: 1 }}
     > 
       <div className="choose-title"><span className="choose-green">{t("whyUs.whyChooseUs1")}</span> {t("whyUs.whyChooseUs2")}</div>
+      
       <div className="cards">
         <Card1/>
         <Card2/>
