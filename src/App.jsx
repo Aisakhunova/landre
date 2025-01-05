@@ -7,12 +7,15 @@ import { Curtain } from './components/Curtain';
 import { Steps } from './components/Ice';
 import FAQ from './components/FAQ';
 import { Privacy } from './components/Privacy';
+import { Numbers } from './components/Numbers';
 function App() {
   return (
     <div className="App">
       <Header />
       <Hero />
+      <Numbers/>
       <WhyUs/>
+      
       <Curtain/>
       <Steps/>
       <FAQ/>

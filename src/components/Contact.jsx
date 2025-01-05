@@ -11,7 +11,8 @@ const Contact = () => {
 
   return (
     <div id="footer">
-      <div className="footer-left">
+     <div className="footer-content">
+     <div className="footer-left">
         <Logo />
         <div className="text-gray">
           {t("footer.rights")} <br />©2024
@@ -49,6 +50,7 @@ const Contact = () => {
           <div className="footer-text text-gray2">{t("footer.refund")}</div>
         </div>
       </div>
+     </div>
     </div>
   );
 };

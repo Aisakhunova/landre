@@ -6,7 +6,7 @@ export const Card2 = () => {
     const { t } = useTranslation();
     return (
         <motion.div
-            style={styles.card}
+            className="card2"
             whileHover="hover"  
         >
             <motion.div
@@ -31,7 +31,7 @@ export const Card2 = () => {
                 variants={{
                     hover: {
                        
-                        y: -20,
+                        y: -10,
                     },
                 }}
                 // initial={{ x: 0, y: 180 }}
@@ -67,7 +67,7 @@ export const Card2 = () => {
                 variants={{
                     hover: {
                     scale: 1.15,
-                    y: 70,
+                    y: 90,
                     },
                 }}
                 initial={{ y: 100 }}  
@@ -76,10 +76,10 @@ export const Card2 = () => {
                     duration: 0.5,
                     ease: "easeInOut",
                 }}
-                style={styles.vectorWrapper}
+                className="shieldWrapper"
             >
-                <source srcset="src/img/shield.webp" type="image/webp"></source>
-                <img src="src/img/shield.png" alt="" className={styles.vector} />
+                {/* <source srcset="src/img/shield.webp" type="image/webp"></source> */}
+                <img src="src/img/shield.svg" alt="" className={styles.vector} />
             </motion.div>
     
         
@@ -105,38 +105,30 @@ export const Card2 = () => {
 }
 
 const styles = {
-    card: {
-      position: "relative",
-      width: "90%", // Адаптивная ширина
-      maxWidth: "608px", // Максимальная ширина
-      aspectRatio: "1", // Поддержка соотношения сторон 1:1
-      backgroundColor: "#111111",
-      display: "flex",
-      overflow: "hidden",
-      color: "white",
-      cursor: "pointer",
-      borderRadius: "20px",
-      flexDirection: "column",
-      alignItems: "center",
-    },
-    vectorWrapper: {
+    
+    shieldWrapper: {
         position: "absolute",
       width: "60%", // Относительный размер
       height: "90%",
       top: "35%", // Адаптируем положение
+      display: "flex",
+    //   alignItems: "center",
+      justifyContent: 'center'
     },
     vector: {
-      width: "100%",
-      height: "100%",
-      objectFit: "fill"
+
+    //   objectFit: "fill",
+    width: "100%", // SVG будет адаптироваться к размеру контейнера
+        height: "auto", // Сохраняет пропорции
+      backgroundColor: 'blue',
     },
 
     title: {
-      fontSize: "clamp(24px, 5vw, 60px)", // Адаптивный размер текста
+      fontSize: "clamp(34px, 5vw, 60px)", // Адаптивный размер текста
       fontWeight: "500",
       lineHeight: "1.2",
       textAlign: "center",
-      marginBottom: "10px",
+      marginBottom: "15px",
     },
 
     btn: {
@@ -152,6 +144,14 @@ const styles = {
       fontSize: "clamp(14px, 2vw, 20px)", // Адаптивный размер текста
       lineHeight: "1.2",
       marginLeft: "10px",
+    },
+  };
+
+  const mediaQueries = {
+    "@media (max-width: 768px)": {
+      card: {
+        maxWidth: "100%", // Карточка будет занимать 100% ширины на маленьких экранах
+      }
     },
   };
 

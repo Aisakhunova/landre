@@ -7,10 +7,11 @@ const Card3 = () => {
   const { t } = useTranslation();
   return (
     <motion.div
-        style={styles.card}
+
         whileHover="hover"  
+        className="card3"
       >
-        <div style={styles.title}>{t("whyUs.blazing1")} <div className="choose-green">{t("whyUs.blazing2")}</div> {t("whyUs.blazing3")}</div>
+        <div style={styles.title} className="card-mob">{t("whyUs.blazing1")} <div className="choose-green">{t("whyUs.blazing2")}</div> {t("whyUs.blazing3")}</div>
         <motion.div
           variants={{
             hover: {
@@ -29,8 +30,8 @@ const Card3 = () => {
           style={styles.vectorWrapper}
         >
           {/* <Lightning style={styles.vector} /> */}
-          <source srcset="src/img/lightning.webp" type="image/webp"></source>
-          <img src="src/img/lightning.png" alt=""style={styles.vector} />
+          {/* <source srcset="src/img/lightning.webp" type="image/webp"></source> */}
+          <img src="src/img/lightning.svg" alt=""style={styles.vector} />
         </motion.div>
         
         <motion.div
@@ -48,7 +49,7 @@ const Card3 = () => {
           }}
         
         >
-         <div className="card-text">{t("whyUs.stream1")} <br />{t("whyUs.stream2")} <br /> {t("whyUs.stream3")}</div>
+         <div className="card3-text">{t("whyUs.stream1")} <br />{t("whyUs.stream2")} <br /> {t("whyUs.stream3")}</div>
         </motion.div>
 
         <div style={styles.btn} onClick={() => console.log("HOLA")}>
@@ -71,25 +72,13 @@ const Card3 = () => {
 };
 
 const styles = {
-  card: {
-    position: "relative",
-    width: "90%", // Адаптивная ширина
-    maxWidth: "608px", // Максимальная ширина
-    aspectRatio: "1", // Поддержка соотношения сторон 1:1
-    backgroundColor: "#111111",
-    display: "flex",
-    overflow: "hidden",
-    color: "white",
-    cursor: "pointer",
-    borderRadius: "20px",
-    flexDirection: "column",
-  },
+  
   vectorWrapper: {
     position: "absolute",
-    width: "453.95px",
-height: "675.16px",
-top: "-38px",
-left: "208px",
+    width: "70%",
+height: "105%",
+top: "-2%",
+left: "40%",
 
   },
   vector: {
@@ -98,15 +87,15 @@ left: "208px",
   },
 
   title: {
-    fontSize: "60px",
+    fontSize: "clamp(34px, 5vw, 60px)", 
     fontFamily: "Raleway",    
 
     fontWeight: "500",
-    lineHeight: "60px",
+    lineHeight: "1.2",
     // top: "55px",
     // left: "35px"
-    marginTop: "88px",
-    marginBottom: "60px",
+    marginTop: "10%",
+    marginBottom: "10%",
     marginLeft: "35px"
   },
   btn: {
@@ -123,6 +112,14 @@ left: "208px",
     lineHeight: "20px",
     marginLeft: "10px",
   }
+};
+
+const mediaQueries = {
+  "@media (max-width: 768px)": {
+    card: {
+      maxWidth: "100%", // Карточка будет занимать 100% ширины на маленьких экранах
+    }
+  },
 };
 
 export default Card3;

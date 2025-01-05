@@ -4,7 +4,7 @@ import { Logo } from '../assets/Logo';
 import { useTranslation } from 'react-i18next';
 
 const Header = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -14,27 +14,46 @@ const Header = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <Logo className="logo" />
+      <img src="src/img/logo2.png" className="logo" alt="" />
       <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
-        {/* Только бургер-иконка через `span` */}
-        <span></span>
         <span></span>
         <span></span>
       </div>
-      <nav>
-        <ul className={menuOpen ? 'open' : ''}>
+      <motion.nav
+        initial={{ height: 0 }}
+        animate={{
+          height: menuOpen ? 'auto' : window.innerWidth > 768 ? 'auto' : 0,
+        }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
+      >
+       <div>
+       <ul className={menuOpen ? 'open' : ''}>
           <li>
-            <a href="#hero" onClick={() => setMenuOpen(false)}>{t("header.home")}</a>
+            <a href="#hero" onClick={() => setMenuOpen(false)}>
+              {t("header.home")}
+            </a>
           </li>
           <li>
-            <a href="#whyUs" onClick={() => setMenuOpen(false)}>{t("header.whyUs")}</a>
+            <a href="#whyUs" onClick={() => setMenuOpen(false)}>
+              {t("header.whyUs")}
+            </a>
           </li>
           <li>
-            <a href="#contact" onClick={() => setMenuOpen(false)}>{t("header.private")}</a>
+            <a href="#privacy" onClick={() => setMenuOpen(false)}>
+              {t("header.private")}
+            </a>
           </li>
+          
+          <li>
+          <button className="startButton header-btn for-mb">{t("header.getAccess")}</button>
+          </li>
+
         </ul>
-      </nav>
-      <button className="startButton header-btn">{t("header.getAccess")}</button>
+       </div>
+        
+      </motion.nav>
+      <button className="startButton header-btn for-lg">{t("header.getAccess")}</button>
+      
     </motion.header>
   );
 };
